@@ -62,3 +62,21 @@ directory directly. Building from source requires the
 `tsdown.config.ts` imports the `clientBundle` preset from
 `packages/client/tsdown.client.ts`. The published npm package
 (`@asuka1121/dsh-client-ui-elasticsearch`) is the canonical build artifact.
+
+## Future Plans
+
+**Vision.** The real payoff of a log-search plugin is *correlation*: not just
+finding log lines, but tracing each one back to the project code that produced
+it. The long-term goal is exactly that — log-to-code traceability.
+
+**Current boundary.** Today the agent correlates logs only against the local
+workspace. Code-side integration stays on hold until DSH officially exposes a
+remote/network workspace (e.g. binding `0.0.0.0`) — correlating logs against a
+workspace the agent cannot reach would be meaningless.
+
+**Open problem — acquiring the code.** The leading idea is to clone the owning
+project on the **server side**, on demand, before each query, keyed by the
+`app_name` found in the logs, so answers stay self-contained and always based
+on the latest code. Storing full clones for every app is expensive, so lighter
+approaches are under evaluation: shallow/partial clones, lazily fetching only
+the files a trace references, and cache/eviction policies.

@@ -50,3 +50,11 @@ MIT
 [deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) monorepo：
 `tsdown.config.ts` 引用了 `packages/client/tsdown.client.ts` 的 `clientBundle` 预设。
 npm 发布包（`@asuka1121/dsh-client-ui-elasticsearch`）是规范的构建产物。
+
+## 未来计划
+
+**愿景。** 日志检索插件的真正价值在于「关联」：不只是找到日志，而是把每条日志都溯源到产生它的项目代码。长期目标正是实现这种「日志 → 代码」的可追溯分析。
+
+**当前边界。** 目前 Agent 只能把日志与本地工作区做关联。代码侧集成暂缓——等 dsh 官方开放远程/网络工作区访问（例如绑定 `0.0.0.0`）再启动；Agent 够不到的工作区，做代码关联没有意义。
+
+**待解难点：代码获取。** 目前的设想是在**服务器端**按需拉取：每次询问前，根据日志里的 `app_name` 克隆对应项目，让答案自包含、始终基于最新代码。但为每个应用保存完整克隆的存储开销太大，正在评估更轻量的方案：浅/部分克隆、只懒加载 trace 命中的相关文件、缓存与淘汰策略等。
