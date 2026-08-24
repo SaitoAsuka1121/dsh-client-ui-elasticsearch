@@ -1,0 +1,14 @@
+# @deepseek-ai/dsh-client-ui-elasticsearch bundle patch.
+#
+# A `dsh plugin --profile web add @deepseek-ai/dsh-client-ui-elasticsearch`
+# installs this package into the profile and, because it declares
+# `dsh.bundle.patch`, the profile boot appends it to `dsh.profile.bundles`,
+# which applies this patch AFTER the base and web-app bundle layers. By then
+# the host `settings` and `tools` services and the browser roster
+# (`modules`/`connection`/`runtime`/`locale`/`slots`) already exist, so a
+# single row activates both faces: the node half (register the `elasticsearch`
+# settings namespace + the `es_query_logs` tool) and, through the package's
+# `dsh.client` declaration, the browser settings-section form.
+- insert:
+    - id: ui-elasticsearch
+      name: '@asuka1121/dsh-client-ui-elasticsearch'

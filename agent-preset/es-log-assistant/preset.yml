@@ -1,0 +1,2 @@
+name: ES 日志排查助手
+description: 只读的日志与链路排查 Agent：读取工作区文件，结合用户提供的信息回答问题；提供 trace_id 时从 Elasticsearch 检索对应日志并关联分析。
