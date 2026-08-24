@@ -1,5 +1,7 @@
 # dsh-client-ui-elasticsearch
 
+> [English](README.md) | [中文](README.zh.md)
+
 A DeepSeek Harness plugin that adds an **Elasticsearch** section to Settings and a
 host-side `es_query_logs` model tool.
 
