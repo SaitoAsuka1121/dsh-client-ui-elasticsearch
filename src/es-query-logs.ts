@@ -10,13 +10,14 @@
 
 import type { Context } from '@deepseek-ai/cordis'
 import { defineTool } from '@deepseek-ai/dsh-tools'
-import { settingsNamespace } from '@deepseek-ai/dsh-settings'
+// Type-only: pulls the `Context.settings` augmentation (settings.get/...).
+import type {} from '@deepseek-ai/dsh-settings'
 import {
   DEFAULT_ELASTICSEARCH_SETTINGS, ELASTICSEARCH_SETTINGS_NAMESPACE,
   type ElasticsearchSettings,
 } from './elasticsearch-settings.ts'
 
-const NAMESPACE = settingsNamespace(ELASTICSEARCH_SETTINGS_NAMESPACE)
+const NAMESPACE = ELASTICSEARCH_SETTINGS_NAMESPACE
 
 /** Registry name of the tool. */
 export const ES_QUERY_LOGS_TOOL = 'es_query_logs'

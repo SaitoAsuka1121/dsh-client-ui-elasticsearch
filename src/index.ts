@@ -2,7 +2,8 @@
 
 import type { Context } from '@deepseek-ai/cordis'
 import type {} from '@deepseek-ai/dsh-system-prompt'
-import { settingsNamespace } from '@deepseek-ai/dsh-settings'
+// Type-only: pulls the `Context.settings` augmentation (settings.register/...).
+import type {} from '@deepseek-ai/dsh-settings'
 import {
   ELASTICSEARCH_SETTINGS_NAMESPACE, ElasticsearchSettingsSchema,
 } from './elasticsearch-settings.ts'
@@ -14,7 +15,7 @@ export {
 } from './elasticsearch-settings.ts'
 export { ES_QUERY_LOGS_TOOL, ES_QUERY_LOGS_DEFAULT_SIZE, ES_QUERY_LOGS_MAX_SIZE } from './es-query-logs.ts'
 
-const NAMESPACE = settingsNamespace(ELASTICSEARCH_SETTINGS_NAMESPACE)
+const NAMESPACE = ELASTICSEARCH_SETTINGS_NAMESPACE
 
 /**
  * Tool-guidance section (order band 100–199) so every session — not just a

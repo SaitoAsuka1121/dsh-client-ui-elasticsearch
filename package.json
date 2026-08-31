@@ -1,7 +1,7 @@
 {
   "name": "@asuka1121/dsh-client-ui-elasticsearch",
   "description": "Elasticsearch connection settings for DeepSeek Harness: shared settings section (URIs/username/password) plus the es_query_logs model tool",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publishConfig": {
     "access": "public"
   },
